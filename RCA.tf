@@ -121,29 +121,6 @@ resource "aws_efs_mount_target" "mt1" {
 
 
 
-resource "aws_efs_mount_target" "mt2" {
-
-  depends_on = [
-    aws_efs_mount_target.mt1,
-  ]
-  file_system_id = aws_efs_file_system.efs1.id
-  subnet_id      = "subnet-a2e954d9"
-  security_groups = [aws_security_group.sc7.id]  
-}
-
-
-
-resource "aws_efs_mount_target" "mt3" {
-
-  depends_on = [
-    aws_efs_mount_target.mt2,
-  ]
-  file_system_id = aws_efs_file_system.efs1.id
-  subnet_id      = "subnet-a6e5dfce"
-  security_groups = [aws_security_group.sc7.id]
-}
-
-
 
 
 resource "aws_instance"  "i2" {
